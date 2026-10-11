@@ -1,3 +1,4 @@
 # Um link por linha. Linhas com # são ignoradas.
-# https://meu-site-teste.onrender.com
-# https://outro-teste.onrender.com
+https://planos-cartomancia.onrender.com/
+https://logtrack-cloud.onrender.com/rh
+https://logtrack-licencas.onrender.com/admin
