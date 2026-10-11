@@ -1,0 +1,18 @@
+name: Keep Alive
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # a cada 10 minutos
+  workflow_dispatch:          # permite rodar manualmente
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Acessar os links
+        run: |
+          grep -v '^\s*#' urls.txt | grep -v '^\s*$' | while read -r url; do
+            code=$(curl -s -o /dev/null -L --max-time 60 --retry 2 -w "%{http_code}" "$url" || echo "erro")
+            echo "$(date -u +%H:%M:%S) $code $url"
+          done
